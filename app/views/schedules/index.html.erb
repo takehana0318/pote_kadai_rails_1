@@ -1,0 +1,26 @@
+<h1>スケジュール一覧</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>タイトル</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>終日</th>
+      <th>更新日時</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @schedules.each do |schedule| %>
+      <tr>
+        <td><%= schedule.id %></td>
+        <td><%= schedule.title %></td>
+        <td><%= schedule.start_date.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= schedule.end_date.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= schedule.all_day ? 'はい' : 'いいえ' %></td>
+        <td><%= schedule.updated_at.strftime("%Y-%m-%d %H:%M") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
