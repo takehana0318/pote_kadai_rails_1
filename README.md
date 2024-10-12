@@ -1,0 +1,1 @@
+# pote_kadai_rails_1
