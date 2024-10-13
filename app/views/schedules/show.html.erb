@@ -1,0 +1,14 @@
+<h1>スケジュール詳細</h1>
+
+<p><strong>ID:</strong> <%= @schedule.id %></p>
+<p><strong>タイトル:</strong> <%= @schedule.title %></p>
+<p><strong>開始日:</strong> <%= @schedule.start_date.in_time_zone('Asia/Tokyo').strftime("%Y/%m/%d %H:%M") %></p>
+<p><strong>終了日:</strong> <%= @schedule.end_date.in_time_zone('Asia/Tokyo').strftime("%Y/%m/%d %H:%M") %></p>
+<p><strong>終日:</strong> <%= @schedule.all_day ? "○" : "×" %></p>
+<p><strong>スケジュールメモ:</strong> <%= @schedule.schedule_memo %></p>
+<p><strong>作成日時:</strong> <%= @schedule.created_at.in_time_zone('Asia/Tokyo').strftime("%Y/%m/%d %H:%M") %></p>
+<p><strong>更新日時:</strong> <%= @schedule.updated_at.in_time_zone('Asia/Tokyo').strftime("%Y/%m/%d %H:%M") %></p>
+
+<%= link_to '編集', edit_schedule_path(@schedule) %> |
+<%= link_to '削除', schedule_path(@schedule), method: :delete, data: { confirm: '本当に削除しますか？' } %> |
+<%= link_to '一覧に戻る', schedules_path %>
