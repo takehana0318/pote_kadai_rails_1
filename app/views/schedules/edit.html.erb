@@ -1,0 +1,45 @@
+<h1>スケジュール編集</h1>
+
+<%= form_with(model: @schedule, local: true) do |form| %>
+  <% if @schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@schedule.errors.count, "エラー") %> が発生しました:</h2>
+      <ul>
+        <% @schedule.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, "タイトル" %><br>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :start_date, "開始日" %><br>
+    <%= form.datetime_select :start_date %>
+  </div>
+
+  <div>
+    <%= form.label :end_date, "終了日" %><br>
+    <%= form.datetime_select :end_date %>
+  </div>
+
+  <div>
+    <%= form.label :all_day, "終日" %><br>
+    <%= form.check_box :all_day %>
+  </div>
+
+  <div>
+    <%= form.label :schedule_memo, "スケジュールメモ" %><br>
+    <%= form.text_area :schedule_memo %>
+  </div>
+
+  <div>
+    <%= form.submit "更新する" %>
+  </div>
+<% end %>
+
+<%= link_to 'キャンセル', schedule_path(@schedule) %>
